@@ -1,19 +1,15 @@
-# Clean CSV Script Documentation
+# CSV Cleaner Project
 
-## Description
-This script, `clean_csv.py`, cleans CSV files by removing rows that contain any empty fields.
+This project contains a Python script that cleans CSV files by removing rows that are not completely filled. It also includes a unit test to ensure the script works correctly.
 
-## Installation
-No additional libraries are required, as the script uses only Python’s standard libraries.
+## Files in the Project
 
-## How to Use
-To use this script, you need to provide two arguments:
-1. `input_file`: The path to the CSV file you want to clean.
-2. `output_file`: The path where you want the cleaned CSV file to be saved.
+- `clean_csv.py`: This script reads a CSV file and removes any rows that have empty fields.
+- `test_clean_csv.py`: This file contains tests to check if the `clean_csv.py` script is functioning as expected.
 
-## Troubleshooting
-**Error: "the following arguments are required: input_file, output_file"**
-- This error occurs if the input and output file paths are not provided when running the script. Make sure to include both paths as shown in the example command:
+## How to Run the Script
+
+To clean a CSV file, make sure you have Python installed on your computer and then run the following command in the terminal:
 
 ```bash
-python3 clean_csv.py input.csv output.csv
+python3 /path/to/clean_csv.py
