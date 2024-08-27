@@ -14,14 +14,14 @@ class TestCleanCSV(unittest.TestCase):
             writer = csv.writer(file)
             writer.writerow(['name', 'age', 'city'])
             writer.writerow(['Alice', 30, 'New York'])
-            writer.writerow(['', '', ''])  # This row is empty and should be removed
+            writer.writerow(['', '', ''])  #this row is empty and should be removed
         
         #use the function to clean the CSV
         clean_csv(test_input, test_output)
         
         with open(test_output, 'r') as file:
             rows = list(csv.reader(file))
-            self.assertEqual(len(rows), 2)  # We expect only two rows (header and Alice's row)
+            self.assertEqual(len(rows), 2)  #expecting only two row: header and Alice's row
 
         #clean up files
         import os
