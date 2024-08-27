@@ -17,7 +17,6 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if args.input_file is None or args.output_file is None:
-        # Instead of printing a message or exiting, just silently do nothing
-        sys.exit()  # Exit quietly
+        sys.exit() 
 
     clean_csv(args.input_file, args.output_file)

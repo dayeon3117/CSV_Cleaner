@@ -1,7 +1,7 @@
 import unittest
 import os
 import csv
-from clean_csv import clean_csv  # This line should not say 'from clean_csv.py import'
+from clean_csv import clean_csv
 
 class TestCleanCSV(unittest.TestCase):
     def test_clean_csv_removes_empty_rows(self):
@@ -11,13 +11,13 @@ class TestCleanCSV(unittest.TestCase):
             writer = csv.writer(file)
             writer.writerow(['name', 'age', 'city'])
             writer.writerow(['Alice', '30', 'New York'])
-            writer.writerow(['', '', ''])  # This row should be removed
+            writer.writerow(['', '', ''])
 
         clean_csv(input_path, output_path)
 
         with open(output_path, 'r') as file:
             reader = list(csv.reader(file))
-            self.assertEqual(len(reader), 2)  # Expecting header and one valid row
+            self.assertEqual(len(reader), 2)
 
         os.remove(input_path)
         os.remove(output_path)
