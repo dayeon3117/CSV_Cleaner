@@ -3,6 +3,9 @@
 ## Description
 This script, `clean_csv.py`, cleans CSV files by removing rows that contain any empty fields.
 
+## Installation
+No additional libraries are required, as the script uses only Python’s standard libraries.
+
 ## How to Use
 To use this script, you need to provide two arguments:
 1. `input_file`: The path to the CSV file you want to clean.
