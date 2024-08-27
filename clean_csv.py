@@ -3,8 +3,13 @@ import argparse
 import sys
 
 def clean_csv(input_file, output_file):
-    #Reads a CSV file, removes rows with any empty fields
-    #and write the cleaned data to a new CSV file
+    """
+    Reads a CSV file, removes rows with any empty fields and writes the cleaned data to a new CSV file
+    
+    Parameters:
+    input_file (str): The path to the source CSV file
+    output_file (str): The path to the output CSV file
+    """
     with open(input_file, mode='r') as infile, open(output_file, mode='w', newline='') as outfile:
         reader = csv.reader(infile)
         writer = csv.writer(outfile)
