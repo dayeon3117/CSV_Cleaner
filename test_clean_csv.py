@@ -1,33 +1,32 @@
 import unittest
-import os
-import csv
 from clean_csv import clean_csv
+import csv
 
 class TestCleanCSV(unittest.TestCase):
-    """
-    Test suite for clean_csv.py
-    """
-    def test_clean_csv_removes_empty_rows(self):
-        """
-        Tests whether the clean_csv function correctly removes rows with empty fields
-        """
-        input_path = 'test_input.csv'
-        output_path = 'test_output.csv'
-        with open(input_path, 'w', newline='') as file:
+    """Test to see if empty rows are removed from the CSV"""
+    
+    def test_empty_rows_removed(self):
+        test_input = 'test_input.csv'
+        test_output = 'test_output.csv'
+        
+        #writing test data
+        with open(test_input, 'w', newline='') as file:
             writer = csv.writer(file)
             writer.writerow(['name', 'age', 'city'])
-            writer.writerow(['Alice', '30', 'New York'])
-            writer.writerow(['', '', '']) #Adding an empty row for the test
+            writer.writerow(['Alice', 30, 'New York'])
+            writer.writerow(['', '', ''])  # This row is empty and should be removed
+        
+        #use the function to clean the CSV
+        clean_csv(test_input, test_output)
+        
+        with open(test_output, 'r') as file:
+            rows = list(csv.reader(file))
+            self.assertEqual(len(rows), 2)  # We expect only two rows (header and Alice's row)
 
-        clean_csv(input_path, output_path)
-
-        with open(output_path, 'r') as file:
-            reader = list(csv.reader(file))
-            self.assertEqual(len(reader), 2) # Expecting 2 rows: the header and one valid row
-
-        os.remove(input_path)
-        os.remove(output_path)
-        #Cleans up by removing the test files after the test is complete
+        #clean up files
+        import os
+        os.remove(test_input)
+        os.remove(test_output)
 
 if __name__ == '__main__':
     unittest.main()
