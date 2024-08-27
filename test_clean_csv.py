@@ -4,9 +4,13 @@ import csv
 from clean_csv import clean_csv
 
 class TestCleanCSV(unittest.TestCase):
-    # test suite for clean_csv.py
+    """
+    Test suite for clean_csv.py
+    """
     def test_clean_csv_removes_empty_rows(self):
-        #Tests whether the clean_csv function correctly removes rows with empty fields
+        """
+        Tests whether the clean_csv function correctly removes rows with empty fields
+        """
         input_path = 'test_input.csv'
         output_path = 'test_output.csv'
         with open(input_path, 'w', newline='') as file:
@@ -19,7 +23,7 @@ class TestCleanCSV(unittest.TestCase):
 
         with open(output_path, 'r') as file:
             reader = list(csv.reader(file))
-            self.assertEqual(len(reader), 2) #2 rows: the header and one valid row
+            self.assertEqual(len(reader), 2) # Expecting 2 rows: the header and one valid row
 
         os.remove(input_path)
         os.remove(output_path)

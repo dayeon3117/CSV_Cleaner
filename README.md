@@ -11,6 +11,9 @@ To use this script, you need to provide two arguments:
 1. `input_file`: The path to the CSV file you want to clean.
 2. `output_file`: The path where you want the cleaned CSV file to be saved.
 
+## Troubleshooting
+If you encounter errors stating "the following arguments are required," ensure you have provided both an input and an output file as arguments.
+
 ### Example Command
 ```bash
 python3 clean_csv.py input.csv output.csv
